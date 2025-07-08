@@ -1,3 +1,4 @@
+// System Components import
 import React from "react"
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,7 +19,7 @@ export const useImageLoader = (images: string[]) => {
                 img.onload = async () => {
                     countLoaded++;
                     setProgress(countLoaded / totalimages);
-                    await delay(2000);
+                    await delay(200);
                     resolve();
                     console.log(progress);
                 }
@@ -27,7 +28,7 @@ export const useImageLoader = (images: string[]) => {
                     console.error(`Error Loading Image: ${image}. Error is - ${error}`);
                     countLoaded++;
                     setProgress(countLoaded / totalimages);
-                    await delay(2000);
+                    await delay(200);
                     resolve();
                 }
             });
